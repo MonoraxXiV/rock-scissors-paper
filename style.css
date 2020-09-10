@@ -1,0 +1,10 @@
+body {
+    width: 90%;
+    margin: auto;
+    background-color: lightblue;
+    font-size: 1.2rem;
+}
+
+.card{
+    background:  lightblue;
+}
