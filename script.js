@@ -13,27 +13,31 @@
     var yourWincounter = 0;
     var opponentWinCounter = 0;
 
+
     console.log(randNumber);
 
-
+    playerTurn();
+function playerTurn(){
     document.getElementById("paper").addEventListener('click', function () {
         playerChoise = "paper";
         console.log("you chose paper");
-        document.getElementById("paper").style.background='#000000';
+        document.getElementById("paper").style.background = '#000000';
         pcTurn();
     })
     document.getElementById("rock").addEventListener('click', function () {
         playerChoise = "rock";
-        document.getElementById("rock").style.background='#000000';
+        document.getElementById("rock").style.background = '#000000';
         console.log("you chose rock");
         pcTurn();
     })
     document.getElementById("scissors").addEventListener('click', function () {
         playerChoise = "scissors"
-        document.getElementById("scissors").style.background='#000000';
+        document.getElementById("scissors").style.background = '#000000';
         console.log("You chose scissors");
         pcTurn();
     })
+}
+
 
     function pcTurn() {
 
@@ -69,6 +73,7 @@
 
         if (playerChoise === pcChoise) {
             document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise + "." + " It's a draw";
+
         } else if (playerChoise === "rock" && pcChoise === "paper") {
             document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise + "." + " You lost";
             opponentWinCounter++
@@ -78,7 +83,7 @@
         } else if (playerChoise === "paper" && pcChoise === "rock") {
             document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise + "." + " You win!";
             yourWincounter++
-        } else if (playerChoise === "paper" && pcChoise ==="scissors") {
+        } else if (playerChoise === "paper" && pcChoise === "scissors") {
             document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise + "." + " You lose";
             opponentWinCounter++
         } else if (playerChoise === "scissors" && pcChoise === "rock") {
@@ -88,4 +93,7 @@
             document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise + "." + " You win!";
             yourWincounter++
         }
+        document.getElementById("playerWinCounter").innerHTML= "you: "+yourWincounter;
+        document.getElementById("pcWinCounter").innerHTML="opponent: "+opponentWinCounter;
+
     }
