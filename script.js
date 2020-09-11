@@ -39,7 +39,7 @@ function pcTurn() {
         document.getElementById("target").src = replaceImage.src;
         document.getElementById("target").alt = "image of a rock";
         document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise;
-
+        isItWinning ()
 
     } else if (randNumber > 34 && randNumber <= 66) {
         pcChoise = "paper";
@@ -48,13 +48,39 @@ function pcTurn() {
         document.getElementById("target").src = replaceImage.src;
         document.getElementById("target").alt = "image of a piece of paper";
         document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise;
+        isItWinning ()
     } else {
         pcChoise = "scissors"
-        console.log("scissor");
+        console.log("scissors");
         replaceImage.src = "./Resources/scissor.png";
         document.getElementById("target").src = replaceImage.src;
         document.getElementById("target").alt = "image of a pair of scissors";
-        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise;
+        isItWinning ()
+
     }
 }
 
+function isItWinning (){
+
+    if (playerChoise==pcChoise){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+ "."+" It's a draw";
+    }
+    else if(playerChoise=="rock" && pcChoise=="paper"){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+"."+ " You lost";
+    }
+    else if(playerChoise=="rock" && pcChoise=="scissors"){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+"."+ " You win!";
+    }
+    else if(playerChoise=="paper" && pcChoise=="rock"){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+ "."+" You win!";
+    }
+    else if(playerChoise=="paper" && pcChoise=="scissors"){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+ "."+" You lose";
+    }
+    else if(playerChoise=="scissors" && pcChoise=="rock"){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+"."+ " You lose";
+    }
+    else if(playerChoise=="scissors" && pcChoise=="paper"){
+        document.getElementById("result").innerHTML = "Your opponent chose: " + pcChoise+"."+ " You win!";
+    }
+}
