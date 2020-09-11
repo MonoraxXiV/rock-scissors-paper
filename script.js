@@ -22,17 +22,23 @@ function playerTurn(){
         playerChoise = "paper";
         console.log("you chose paper");
         document.getElementById("paper").style.background = '#000000';
+        document.getElementById("rock").style.background = 'rgb(0, 123, 255)';
+        document.getElementById("scissors").style.background = 'rgb(0, 123, 255)';
         pcTurn();
     })
     document.getElementById("rock").addEventListener('click', function () {
         playerChoise = "rock";
         document.getElementById("rock").style.background = '#000000';
+        document.getElementById("paper").style.background = 'rgb(0, 123, 255)';
+        document.getElementById("scissors").style.background = 'rgb(0, 123, 255)';
         console.log("you chose rock");
         pcTurn();
     })
     document.getElementById("scissors").addEventListener('click', function () {
         playerChoise = "scissors"
         document.getElementById("scissors").style.background = '#000000';
+        document.getElementById("paper").style.background = 'rgb(0, 123, 255)';
+        document.getElementById("rock").style.background = 'rgb(0, 123, 255)';
         console.log("You chose scissors");
         pcTurn();
     })
@@ -40,7 +46,8 @@ function playerTurn(){
 
 
     function pcTurn() {
-
+    let newRandNumber=Math.floor(Math.random() * 100) + 1;
+        randNumber=newRandNumber;
         if (randNumber <= 33) {
             pcChoise = "rock";
             console.log("rock");
@@ -95,5 +102,8 @@ function playerTurn(){
         }
         document.getElementById("playerWinCounter").innerHTML= "you: "+yourWincounter;
         document.getElementById("pcWinCounter").innerHTML="opponent: "+opponentWinCounter;
-
+        document.getElementById("end").addEventListener("click",function (){
+            opponentWinCounter=0;
+            yourWincounter=0;
+        })
     }
