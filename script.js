@@ -15,7 +15,12 @@
 
 
     console.log(randNumber);
-
+document.getElementById("end").addEventListener("click",function (){
+    yourWincounter=0;
+    opponentWinCounter=0;
+    document.getElementById("playerWinCounter").innerHTML= "you: "+yourWincounter;
+    document.getElementById("pcWinCounter").innerHTML="opponent: "+opponentWinCounter;
+})
     playerTurn();
 function playerTurn(){
     document.getElementById("paper").addEventListener('click', function () {
@@ -102,8 +107,5 @@ function playerTurn(){
         }
         document.getElementById("playerWinCounter").innerHTML= "you: "+yourWincounter;
         document.getElementById("pcWinCounter").innerHTML="opponent: "+opponentWinCounter;
-        document.getElementById("end").addEventListener("click",function (){
-            opponentWinCounter=0;
-            yourWincounter=0;
-        })
+
     }
